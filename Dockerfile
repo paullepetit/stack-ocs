@@ -46,8 +46,6 @@ env APACHE_RUN_DIR      /var/run/apache2
 env APACHE_LOCK_DIR     /var/lock/apache2
 env APACHE_LOG_DIR      /var/log/apache2
 
-ADD apache2/vhost/default-ssl.conf /etc/apache2/sites-available
-
 RUN /usr/sbin/a2dissite 000-default
 RUN /usr/sbin/a2enmod rewrite
 RUN /usr/sbin/a2ensite default-ssl
