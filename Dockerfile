@@ -1,5 +1,7 @@
 FROM debian
 
+MAINTAINER @palle version: 1
+
 RUN apt-get update
 
 RUN apt-get -y install \
