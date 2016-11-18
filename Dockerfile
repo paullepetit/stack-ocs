@@ -50,7 +50,9 @@ RUN /usr/sbin/a2enmod rewrite
 RUN /usr/sbin/a2ensite default-ssl
 RUN /usr/sbin/a2enmod ssl
 
-CMD ["/usr/sbin/apache2", "-D", "FOREGROUND"]
+ADD start.sh /start.sh
+RUN chmod 0755 /start.sh
+CMD ["bash", "start.sh"]
 
 RUN git clone https://github.com/OCSInventory-NG/OCSInventory-Server.git /tmp/ocs
 RUN git clone https://github.com/OCSInventory-NG/OCSInventory-ocsreports.git /tmp/ocs/ocsreports
