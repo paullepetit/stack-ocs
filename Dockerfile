@@ -55,4 +55,4 @@ RUN git clone https://github.com/OCSInventory-NG/OCSInventory-ocsreports.git /tm
 EXPOSE 443
 EXPOSE 80
 
-ENTRYPOINT [ "/usr/sbin/apache2", "-DFOREGROUND" ]
+CMD ["/usr/sbin/apache2", "-D", "FOREGROUND"]
