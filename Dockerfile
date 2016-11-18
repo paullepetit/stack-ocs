@@ -31,7 +31,7 @@ RUN apt-get -y install \
     nano \
     make
 
-RUN cpan -i XML::Entities \
+RUN cpan -i XML::Entities
 
 #Set time zone Europe/Paris
 RUN cp /usr/share/zoneinfo/Europe/Paris /etc/localtime
@@ -50,11 +50,10 @@ RUN /usr/sbin/a2enmod rewrite
 RUN /usr/sbin/a2ensite default-ssl
 RUN /usr/sbin/a2enmod ssl
 
+CMD ["/usr/sbin/apache2", "-D", "FOREGROUND"]
 
 RUN git clone https://github.com/OCSInventory-NG/OCSInventory-Server.git /tmp/ocs
 RUN git clone https://github.com/OCSInventory-NG/OCSInventory-ocsreports.git /tmp/ocs/ocsreports
 
 EXPOSE 443
 EXPOSE 80
-
-CMD ["/usr/sbin/apache2", "-D", "FOREGROUND"]
